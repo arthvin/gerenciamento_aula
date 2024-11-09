@@ -62,10 +62,26 @@ class ApiService {
   }
 
   Future<void> deleteAula(int id) async {
-    final response = await http.delete(Uri.parse('$baseUrl/$id'));
+    final response = await http.delete(Uri.parse('$baseUrl/aulas/$id'));
 
     if (response.statusCode != 200) {
       throw Exception('Erro ao excluir a aula');
+    }
+  }
+
+  Future<void> atualizarAula(Aula aula) async {
+    final response = await http.put(
+      Uri.parse('$baseUrl/aulas/${aula.id}'),
+      headers: {'Content-Type': 'application/json'},
+      body: json.encode({
+        'titulo': aula.titulo,
+        'data': aula.data.toIso8601String(),
+        'professorId': aula.professorId,
+      }),
+    );
+
+    if (response.statusCode != 200) {
+      throw Exception('Erro ao atualizar aula: ${response.body}');
     }
   }
 

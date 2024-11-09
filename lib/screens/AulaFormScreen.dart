@@ -4,6 +4,8 @@ import '../services/api_service.dart';
 import '../models/aula.dart';
 
 class AulaFormScreen extends StatefulWidget {
+  const AulaFormScreen({super.key});
+
   @override
   _AulaFormScreenState createState() => _AulaFormScreenState();
 }
@@ -30,19 +32,19 @@ class _AulaFormScreenState extends State<AulaFormScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Adicionar Aula")),
+      appBar: AppBar(title: const Text("Adicionar Aula")),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: Column(
           children: [
             TextField(
               controller: _tituloController,
-              decoration: InputDecoration(labelText: "Título da Aula"),
+              decoration: const InputDecoration(labelText: "Título da Aula"),
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: _submitForm,
-              child: Text("Salvar"),
+              child: const Text("Salvar"),
             ),
           ],
         ),

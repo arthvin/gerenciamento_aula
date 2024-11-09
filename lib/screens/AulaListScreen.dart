@@ -5,6 +5,8 @@ import '../models/aula.dart';
 import 'auladetalhesscreen.dart';
 
 class AulaListScreen extends StatefulWidget {
+  const AulaListScreen({super.key});
+
   @override
   _AulaListScreenState createState() => _AulaListScreenState();
 }
@@ -28,16 +30,16 @@ class _AulaListScreenState extends State<AulaListScreen> {
           future: aulas,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Center(child: CircularProgressIndicator());
+              return const Center(child: CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              return Center(
+              return const Center(
                 child: Text(
                   "Erro ao carregar aulas",
                   style: TextStyle(color: Colors.red, fontSize: 18),
                 ),
               );
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-              return Center(
+              return const Center(
                 child: Text(
                   "Nenhuma aula cadastrada",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
@@ -50,17 +52,17 @@ class _AulaListScreenState extends State<AulaListScreen> {
                   Aula aula = snapshot.data![index];
                   return Card(
                     elevation: 4,
-                    margin: EdgeInsets.symmetric(vertical: 8),
+                    margin: const EdgeInsets.symmetric(vertical: 8),
                     child: ListTile(
                       title: Text(
                         aula.titulo,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
                       ),
                       subtitle: Text(
                         'Data: ${DateFormat('dd/MM/yyyy').format(aula.data.toLocal())}',
                       ),
-                      trailing: Icon(
+                      trailing: const Icon(
                         Icons.arrow_forward_ios,
                         size: 16,
                         color: Colors.deepPurple,

@@ -15,7 +15,6 @@ void main() {
     });
 
     test('deve filtrar aulas pelo título', () async {
-      // Mock da resposta da API
       final aulas = [
         Aula(id: 1, titulo: 'Matemática', data: DateTime.now()),
         Aula(id: 2, titulo: 'Física', data: DateTime.now()),

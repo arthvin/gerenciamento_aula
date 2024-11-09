@@ -22,6 +22,20 @@ class Aula {
     );
   }
 
+  Aula copyWith({
+    int? id,
+    String? titulo,
+    DateTime? data,
+    int? professorId,
+  }) {
+    return Aula(
+      id: id ?? this.id,
+      titulo: titulo ?? this.titulo,
+      data: data ?? this.data,
+      professorId: professorId ?? this.professorId,
+    );
+  }
+
   @override
   String toString() {
     return 'Aula(id: $id, titulo: $titulo, data: $data, professorId: $professorId)';

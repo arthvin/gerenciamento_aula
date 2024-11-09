@@ -7,6 +7,8 @@ void main() {
 }
 
 class GerenciadorAulasApp extends StatelessWidget {
+  const GerenciadorAulasApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,6 +28,8 @@ class GerenciadorAulasApp extends StatelessWidget {
 }
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -42,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Gerenciador de Aulas'),
+        title: const Text('Gerenciador de Aulas'),
       ),
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -52,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             _currentIndex = index;
           });
         },
-        items: [
+        items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.list),
             label: 'Listagem',
